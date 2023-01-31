@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: band_api
+  name: band-api
   labels:
     app: band_api
 spec:
@@ -16,10 +16,10 @@ spec:
         app: band_api
     spec:
       containers:
-        - name: bandApiContainer
-          image: localhost:6000/library/band_api:latest
+        - name: bandapicontainer
+          image: so2homelab.com:6000/library/band_api:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 5000
           env:
             - name: USER_NAME
               valueFrom:
@@ -47,7 +47,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: band-api
+    app: band_api
   ports:
     - protocol: TCP
       port: 5000
