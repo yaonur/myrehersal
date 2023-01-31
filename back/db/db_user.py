@@ -10,3 +10,8 @@ def create_user(db: Session, request: UserBaseSchema):
     db.commit()
     db.refresh(new_user)
     return new_user
+
+
+def get_user(db: Session, request: UserBaseSchema):
+    user = db.query(DbUser).filter(DbUser.username == request.username).first()
+    return user
