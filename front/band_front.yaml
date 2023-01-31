@@ -18,7 +18,7 @@ spec:
         - name: bandcontainer
           image: so2homelab.com:6000/library/band_app:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 8080
           env:
             - name: USER_NAME
               valueFrom:
@@ -48,6 +48,6 @@ spec:
     app: band_front
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 8080
+      targetPort: 8080
       nodePort: 30400
