@@ -1,0 +1,45 @@
+name: Portfolio site workflow
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    environment: docker
+#    steps:
+##      - uses: actions/checkout@v3
+##      - name: test secret
+##        env:
+##          user: ${{ secrets.user}}
+##          pass: ${{ secrets.pass }}
+##        run: echo $user
+##        shell: bash
+#      - name: add insecure-registry to daemon.json
+#        run: echo '{"insecure-registries":["so2homelab.com:6080"]}' | sudo tee /etc/docker/daemon.json
+#      - name: restart docker service
+#        run: sudo systemctl restart docker
+#      - name: docker login
+#        env:
+#          user: ${{ secrets.user }}
+#          pass: ${{ secrets.pass }}
+#        run: |
+#          echo $pass | docker login -u $user  so2homelab.com:6080 --password-stdin
+#        shell: bash
+#      - name: build docker image
+#        run: docker build -t so2homelab.com:6080/library/portfolio:latest .
+#      - name: push docker image
+#        run: docker push so2homelab.com:6080/library/portfolio:latest
+#      - name: set kube config
+#        run: |
+#          mkdir ${HOME}/.kube
+#          echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+#          cat ${HOME}/.kube/config
+#      - name: restart pod
+#        run: |
+#          kubectl --insecure-skip-tls-verify rollout restart deployment.apps/portfolio-deployment -n default

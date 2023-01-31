@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: band-deployment
+  labels:
+    app: band_front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: band_front
+  template:
+    metadata:
+      labels:
+        app: band_front
+    spec:
+      containers:
+        - name: bandContainer
+          image: band_app
+          ports:
+            - containerPort: 3000
+          env:
+            - name: USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: mongo-user
+            - name: USER_PWD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: mongo-password
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: mongo-config
+                  key: mongo-url
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: band-front-service
+spec:
+  type: NodePort
+  selector:
+    app: band_front
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30400
