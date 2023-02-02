@@ -5,6 +5,7 @@
     --primary-color: #dbd8e3;
     --primary-background:  #352f44;
     --navbar-background:#2a2438;
+    --form-background:black;
     --navbar-icon:#dbd8e3;
     color:var(--primary-color);
 }

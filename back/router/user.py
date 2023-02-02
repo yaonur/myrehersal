@@ -13,10 +13,11 @@ def create_user(user: schemas.UserBaseSchema, db: Session = Depends(database.get
     return user
 
 
-@router.post('/login')
+@router.post('/login', response_model=schemas.UserResponseSchema)
 def login_user(req: schemas.UserBaseSchema, db: Session = Depends(database.get_db)):
     user: schemas.UserBaseSchema = db_user.get_user(db=db, request=req)
     if not user:
         return False
 
-    return hash.Hash.verify(user.password, req.password)
+    if hash.Hash.verify(user.password, req.password):
+        return user

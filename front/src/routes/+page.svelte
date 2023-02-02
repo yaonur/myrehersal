@@ -1,13 +1,6 @@
-<script>
-  import  user  from "../stores/user";
-  import { Navigate } from "svelte-routing";
-
-  
-
+<script lang="ts">
+	import user from "../stores/user";
+	
 </script>
 
-{#if !user}
-  <svelte:component this={Navigate} to='/login' />
-{:else}
-  <svelte:component this={Navigate} to='/' />
-{/if}
+<h1>Welcome </h1>
