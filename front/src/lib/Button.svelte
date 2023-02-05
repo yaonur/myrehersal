@@ -10,8 +10,8 @@
     button {
         padding: 0.4em 0.8em;
         border: none;
-        background-color: var(--color-hero-background);
-        color: var(--color-primary);
+        background-color: var(--primary-color);
+        color: var(--primary-background);
         font-size: 1em;
         cursor: pointer;
     }
