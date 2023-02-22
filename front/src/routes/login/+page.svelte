@@ -36,9 +36,7 @@
 		border: 1px solid #999;
 		margin-bottom: .4em;
 	}
-	.form-group {
-		margin-bottom: 1.5em;
-	}
+	
 	label {
 		display: block;
 		margin-bottom: 0.5em;

@@ -6,7 +6,7 @@
     "dev": "vite dev --port 8002",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node build",
+    "start": "export PORT=8080 && node ./build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --check .",
@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^1.0.0",
-    "@sveltejs/adapter-node": "^1.1.0",
-    "@sveltejs/kit": "^1.0.0",
+    "@sveltejs/adapter-node": "^1.0.0",
+    "@sveltejs/kit": "^1.5.0",
     "prettier": "^2.8.0",
     "prettier-plugin-svelte": "^2.8.1",
     "svelte": "^3.54.0",
@@ -27,6 +27,7 @@
   },
   "type": "module",
   "dependencies": {
+    "axios": "^1.3.4",
     "svelte-routing": "^1.6.0"
   }
 }
