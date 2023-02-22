@@ -6,11 +6,11 @@
     "dev": "vite dev --port 8002",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node build",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --check .",
     "format": "prettier --plugin-search-dir . --write .",
+    "start": "export PORT=8080 && node ./build",
     "svelte-check": "svelte-check"
   },
   "devDependencies": {
