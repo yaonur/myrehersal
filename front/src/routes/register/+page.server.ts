@@ -24,7 +24,7 @@ const register: Action = async ({request}) => {
     }
 
     try {
-        const res = await axios.post(`http://${api_url}/user/`, user)
+        const res = await axios.post(`${api_url}/user/`, user)
     } catch (err) {
         console.log(err)
     }

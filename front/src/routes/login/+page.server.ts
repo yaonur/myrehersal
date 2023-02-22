@@ -25,7 +25,7 @@ const login: Action = async ({request}) => {
         console.log("login running")
         console.log(api_url)
         console.log(user)
-        const res = await axios.post(`http://${api_url}/user/login`, user).then(res => {
+        const res = await axios.post(`${api_url}/user/login`, user).then(res => {
             console.log("after res")
             return res.data
         })

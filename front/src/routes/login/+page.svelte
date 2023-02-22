@@ -1,52 +1,56 @@
-<script lang="ts">
-	import type { ActionData } from '../../../.svelte-kit/types/src/routes/register/$types';
-
-	export let form: ActionData;
-	export let data
+<script>
+	import Button from '$lib/Button.svelte';
 </script>
 
 <div class="login-container">
+	<h2>Login</h2>
+	<form method="POST" action="#">
+		<div class="form-container">
+			<label for="name">Name</label>
+			<input id="name" name="name" type="text" placeholder="Your name" />
 
-	<form action="?/login" method="POST">
-		<div class="input-box">
-			<label for="username">Username</label>
-			<input type="text" id="username" name="username" required />
-		</div>
-		<div class="input-box">
 			<label for="password">Password</label>
-			<input type="password" id="password" name="password" required />
-		</div >
-		<input type="submit" value="Login" />
-		<a href="/register">Register</a>
+			<input id="password" name="password" type="text" placeholder="Password" />
+
+			<Button type="submit" size="small">Submit</Button>
+		</div>
 	</form>
 </div>
 
 <style>
 	.login-container {
-		display: flex;
-		height: 100vh;
-		flex-direction: column;
-		align-items: center;
-		align-content: center;
-		justify-content: center;
+		margin: 100px auto;
+		max-width: 500px;
+		padding: 2em 1em;
+		background-color: var(--navbar-background);
 	}
-
-	form {
-		padding:50px;
+	.form-container {
 		display: flex;
-		inset:2px;
-		border-radius: 8px;
 		flex-direction: column;
-		background-color: var(--form-background);
-		gap:2px;
 	}
-	.input-box{
-		display: flex;
-		justify-content: space-between;
-		gap:5px;
+	input {
 		
+		/*width: 100%;*/
+		padding: 0.5em 1em;
+		border-radius: 0.25em;
+		border: 1px solid #999;
+		margin-bottom: .4em;
 	}
-	input{
-		color: #2a2438;
+	.form-group {
+		margin-bottom: 1.5em;
+	}
+	label {
+		display: block;
+		margin-bottom: 0.5em;
+	}
+	input,
+	label,
+	h2 {
+		color: var(--primary-color);
+	}
+	h2 {
+		font-weight: 500;
+		font-size: 2em;
+		margin-bottom: 1em;
 	}
 </style>
