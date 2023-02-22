@@ -1,7 +1,6 @@
 import {redirect} from '@sveltejs/kit'
 import axios from "axios"
 import type {Action, Actions, PageServerLoad} from "../../../.svelte-kit/types/src/routes/register/$types";
-import {PUBLIC_API_KEY} from '$env/static/public'
 
 let api_url = process.env.API_URL
 console.log(api_url)
@@ -31,7 +30,8 @@ const login: Action = async ({request}) => {
         })
 
     } catch (err) {
-        console.log(err)
+        // console.log(err)
+        redirect(301,'/')
     }
 }
 

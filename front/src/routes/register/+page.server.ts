@@ -1,7 +1,6 @@
 import {redirect} from '@sveltejs/kit'
 import axios from "axios"
 import type {Action, Actions, PageServerLoad} from "../../../.svelte-kit/types/src/routes/register/$types";
-import { PUBLIC_API_KEY } from '$env/static/public'
 let api_url = process.env.API_URL
 
 
