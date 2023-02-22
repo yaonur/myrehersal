@@ -12,7 +12,7 @@ export const load: PageServerLoad = async () => {
 
 const login: Action = async ({request}) => {
     const data = await request.formData()
-    const username = data.get('username')
+    const username = data.get('name')
     const password = data.get('password')
     let user = {
         username,
