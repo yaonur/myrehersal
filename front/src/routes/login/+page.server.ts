@@ -30,7 +30,9 @@ const login: Action = async ({request}) => {
         })
 
     } catch (err) {
-        // console.log(err)
+        // @ts-ignore
+        console.log(err.message)
+        console.log("login failed")
         redirect(301,'/')
     }
 }
