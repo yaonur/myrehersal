@@ -1,0 +1,7 @@
+back/__pycache__/main.cpython-310.pyc
+back/__pycache__/schemas.cpython-310.pyc
+back/db/__pycache__/database.cpython-310.pyc
+back/db/__pycache__/db_user.cpython-310.pyc
+back/db/__pycache__/hash.cpython-310.pyc
+back/db/__pycache__/models.cpython-310.pyc
+back/router/__pycache__/user.cpython-310.pyc
