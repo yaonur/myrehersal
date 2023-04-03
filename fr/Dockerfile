@@ -1,16 +1,18 @@
-FROM node:lts-slim as build
+FROM node:18-alpine AS build
 
+RUN mkdir /app 
+RUN mkdir /app/data
 WORKDIR /app
 
 COPY package*.json ./
 RUN rm -rf node_modules
 RUN rm -rf build
 COPY . .
-RUN #npm install -g npm@9.5.1
+RUN npm install -g npm@9.6.3
 RUN npm install
 RUN npm run build
 
-FROM node:lts-slim as run
+FROM node:18-alpine AS run
 
 WORKDIR /app
 COPY --from=build /app/package.json ./package.json
