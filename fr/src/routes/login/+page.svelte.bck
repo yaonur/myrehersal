@@ -1,0 +1,23 @@
+<script lang="ts">
+	import type { PageData } from './$types';
+
+	export let data: PageData;
+
+	let loadedData = [];
+
+	async function signInWithEmail() {
+		const resp = await data.supabase.auth.signInWithPassword({
+			email: 'ya_onur@hotmail.com',
+			password: '123123'
+		});
+        console.log(resp.data)
+        loadedData=resp.data
+	}
+</script>
+
+<button on:click={signInWithEmail}>Login</button>
+{#if data.session}
+  <p>client-side data fetching with RLS</p>
+  <pre>{JSON.stringify(loadedData, null, 2)}</pre>
+{/if}
+

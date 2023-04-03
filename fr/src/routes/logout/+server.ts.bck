@@ -1,0 +1,13 @@
+import type { RequestHandler } from './$types';
+import { error as err, redirect } from "@sveltejs/kit"
+
+export const GET: RequestHandler = async ({locals}) => {
+
+	const resp =await locals.supabase.auth.signOut()
+	if (resp.error){
+		console.log(resp.error)
+		throw err(500,"something went wrong logging you out")
+	}
+    return new Response();
+
+}

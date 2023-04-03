@@ -1,10 +1,46 @@
-<script lang='ts'>
-	// The ordering of these imports is critical to your app working properly
+<script lang="ts">
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
-	// If you have source.organizeImports set to true in VSCode, then it will auto change this ordering
 	import '@skeletonlabs/skeleton/styles/all.css';
-	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
-</script>
+	import { invalidate } from '$app/navigation';
+	import { onMount } from 'svelte';
+	import type { LayoutData } from './$types';
+	import { AppRail, AppRailTile, AppShell } from '@skeletonlabs/skeleton';
 
-<slot />
+	export let data: LayoutData;
+
+	$: ({ supabase, session } = data);
+
+	onMount(() => {
+		const {
+			data: { subscription }
+		} = supabase.auth.onAuthStateChange((event, _session) => {
+			if (_session?.expires_at !== session?.expires_at) {
+				invalidate('supabase:auth');
+			}
+		});
+
+		return () => subscription.unsubscribe();
+	});
+</script>
+<AppShell>
+	<svelte:fragment slot="sidebarLeft">
+		<AppRail>
+		<AppRail>
+		<AppRail>
+			{#if data.session}
+				 <!-- content here -->
+				 <AppRailTile tag="a" href="/" icon="user" label="Home" />
+				 <AppRailTile tag="a" href="/profile" icon="user-circle" label="Profile" />
+				 <AppRailTile tag="a" href="/logout" icon="user" label="logout" />
+			{:else}
+				 <!-- else content here -->
+				 <AppRailTile tag="a" href="/login" icon="user" label="Login" />
+				 <AppRailTile tag="a" href="/register" icon="user-plus" label="Register" />
+			{/if}
+		</AppRail>
+	</AppRail>
+	</AppRail>
+	</svelte:fragment>
+	<slot />
+</AppShell>
