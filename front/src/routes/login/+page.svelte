@@ -7,7 +7,7 @@
 	<form method="POST" action="?/login">
 		<div class="form-container">
 			<label for="name">Name</label>
-			<input id="name" name="name" type="text" placeholder="Your name" />
+			<input id="name" name="name" type="text" placeholder="Your names" />
 
 			<label for="password">Password</label>
 			<input id="password" name="password" type="text" placeholder="Password" />
@@ -29,14 +29,13 @@
 		flex-direction: column;
 	}
 	input {
-		
 		/*width: 100%;*/
 		padding: 0.5em 1em;
 		border-radius: 0.25em;
 		border: 1px solid #999;
-		margin-bottom: .4em;
+		margin-bottom: 0.4em;
 	}
-	
+
 	label {
 		display: block;
 		margin-bottom: 0.5em;

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import user from "../stores/user";
-	
+	import user from '../stores/user';
 </script>
 
-<h1>Welcome </h1>
+<h1>Welcome</h1>
