@@ -51,7 +51,7 @@
 	<!-- content here -->
 	<div>
 		{#each data.setlists as setlist}
-			<SetlistComponent {setlist} />
+			<SetlistComponent {setlist} supabase={data.supabase} />
 		{/each}
 	</div>
 {:else}
