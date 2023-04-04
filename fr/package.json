@@ -42,5 +42,8 @@
 	"type": "module",
 	"engines": {
 		"node": ">=16.14"
-	  }
+	},
+	"dependencies": {
+		"@floating-ui/dom": "^1.2.5"
+	}
 }

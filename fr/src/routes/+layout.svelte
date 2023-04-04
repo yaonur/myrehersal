@@ -6,6 +6,9 @@
 	import { onMount } from 'svelte';
 	import type { LayoutData } from './$types';
 	import { AppRail, AppRailTile, AppShell } from '@skeletonlabs/skeleton';
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 	export let data: LayoutData;
 
@@ -32,6 +35,7 @@
 				 <!-- content here -->
 				 <AppRailTile tag="a" href="/" icon="user" label="Home" />
 				 <AppRailTile tag="a" href="/profile" icon="user-circle" label="Profile" />
+				 <AppRailTile tag="a" href="/setlists" icon="user-circle" label="Setlists" />
 				 <AppRailTile tag="a" href="/logout" icon="user" label="logout" />
 			{:else}
 				 <!-- else content here -->
@@ -42,5 +46,7 @@
 	</AppRail>
 	</AppRail>
 	</svelte:fragment>
-	<slot />
+	<div class="pl-2 pt-2">
+		<slot />
+	</div>
 </AppShell>

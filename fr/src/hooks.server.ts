@@ -24,7 +24,7 @@ import {
 	  } = await event.locals.supabase.auth.getSession();
 	  return session;
 	};
-	if (!event.url.pathname.startsWith('/login')) {
+	if (!(event.url.pathname.startsWith('/login')||event.url.pathname.startsWith('/register'))) {
 		const session = await event.locals.getSession();
 		if (!session) {
 		  // the user is not signed in
