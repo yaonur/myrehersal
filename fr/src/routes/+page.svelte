@@ -6,7 +6,7 @@
 	let loadedData = [];
 	async function loadData() {
 	  const resp = await data.supabase.from('Todos').select('*').limit(20);
-	  loadedData = resp!.data;
+	  loadedData = resp!.data as any;
 	}
   
 	$: if (data.session) {
@@ -15,5 +15,4 @@
   </script>
   
  
-  <h1>Ui begenmediyseniz bi tarafinizi kaldirip </h1>
-  <h2>FIGMADAN design yapip gonderin </h2>
+  <h1>SO2</h1>

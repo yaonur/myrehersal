@@ -8,7 +8,7 @@ export const actions: Actions = {
 		console.log("registering")
 		// console.log(locals)
 		console.log(body)
-		const {data,error:err}=await locals.supabase.auth.signUp({
+		const {error:err}=await locals.supabase.auth.signUp({
 			email:body.email as string,
 			password:body.password as string,
 		})
