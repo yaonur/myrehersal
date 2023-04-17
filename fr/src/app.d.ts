@@ -2,6 +2,18 @@ import { SupabaseClient, Session } from '@supabase/supabase-js';
 import { Database } from './DatabaseDefinitions';
 
 declare global {
+	type Setlists= [Setlist]
+	type Setlist= {
+		id:string
+		title: string;
+		songs: Array<Song>;
+	}
+	
+	type Song={
+		name:string;
+		tone:string;
+		tempo:int;
+	}
 	namespace App {
 		interface Locals {
 			supabase: SupabaseClient<Database>;
@@ -15,19 +27,4 @@ declare global {
 		// interface Error {}
 		// interface Platform {}
 	}
-}
-interface Setlists {
-	[Setlist];
-}
-interface Setlist {
-	id:string
-	title: string;
-}
-interface Songs{
-	[Song];
-}
-interface Song{
-	name:string;
-	tone:string;
-	tempo:string;
 }

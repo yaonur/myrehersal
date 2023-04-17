@@ -3,4 +3,3 @@
     
     export let data: PageData;
 </script>
-<h1>Profile olcek burada</h1>

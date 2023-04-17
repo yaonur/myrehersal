@@ -7,17 +7,21 @@ export const actions: Actions = {
 		const body = Object.fromEntries(await request.formData());
 		console.log("registering")
 		// console.log(locals)
+		console.log(body)
 		const {data,error:err}=await locals.supabase.auth.signUp({
 			email:body.email as string,
-			password:body.password as string
+			password:body.password as string,
 		})
+		
 		if(err){
+			console.log(`Error: ${err}`)
 			if (err instanceof AuthApiError && err.status ===400){
 				return fail(400,{
 					error:"Invalid email or password"
 				})
 			}
 			return fail(500,{
+
 				error:"Server error.Please try again later"
 			})
 		}

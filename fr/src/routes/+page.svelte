@@ -15,5 +15,5 @@
   </script>
   
  
-  <h1>Senturk attiriyim o beyne </h1>
-  <h2>Burasi home screen akilli ol</h2>
+  <h1>Ui begenmediyseniz bi tarafinizi kaldirip </h1>
+  <h2>FIGMADAN design yapip gonderin </h2>
